@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zawadi Express - Kenyan Dropshipping Platform</title>
+  <style>
+    :root {
+      --primary: #16a34a;
+      --primary-dark: #15803d;
+      --mpesa: #00a859;
+      --dark: #0f172a;
+      --card-bg: #ffffff;
+      --bg: #f8fafc;
+      --text: #1e293b;
+      --text-muted: #64748b;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 900px;
+      width: 100%;
+    }
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 2.5rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      color: #4ade80;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+    }
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      background: #4ade80;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #4ade80;
+    }
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 900;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.5rem;
+    }
+    h1 span {
+      color: var(--primary);
+    }
+    p.lead {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      max-width: 650px;
+      line-height: 1.5;
+    }
+    .server-status {
+      margin-top: 1.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem;
+    }
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--mpesa);
+      color: white;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 0.85rem 1.75rem;
+      border-radius: 0.85rem;
+      box-shadow: 0 4px 15px rgba(0, 168, 89, 0.4);
+      transition: all 0.2s ease;
+      margin-left: auto;
+    }
+    .cta-button:hover {
+      background: #008f4c;
+      transform: translateY(-2px);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid #e2e8f0;
+      border-radius: 1.25rem;
+      padding: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      transition: all 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card:hover {
+      border-color: var(--primary);
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
+    }
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin-bottom: 0.35rem;
+      color: var(--text);
+    }
+    .card p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+    }
+    .card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-decoration: none;
+    }
+    .card a:hover {
+      text-decoration: underline;
+    }
+    .preview-box {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+    }
+    .preview-header {
+      background: #f1f5f9;
+      padding: 0.75rem 1.25rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #64748b;
+    }
+    iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+      background: white;
+    }
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.8rem;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <header>
+      <div class="badge">
+        <div class="pulse-dot"></div>
+        KENYAN DROPSHIPPING PLATFORM READY
+      </div>
+      <h1>Zawadi<span>Express</span> Kenya</h1>
+      <p class="lead">
+        Full-stack e-commerce web platform for local dropshipping with M-Pesa STK Push, 47 Counties delivery rates, local wholesale suppliers management, and admin ERP.
+      </p>
+
+      <div class="server-status">
+        <span>🟢 Local Server Port: <strong>http://localhost:3000</strong></span>
+        <a href="http://localhost:3000" target="_blank" class="cta-button">
+          Open Website (localhost:3000) →
+        </a>
+      </div>
+    </header>
+
+    <div class="grid">
+      <!-- Card 1 -->
+      <div class="card">
+        <div>
+          <div class="card-icon" style="background: #e6f7ef; color: #00a859;">🛒</div>
+          <h3>Public Storefront</h3>
+          <p>Homepage with hero banner, featured deals, categories, and verified Kenyan trust marks.</p>
+        </div>
+        <a href="http://localhost:3000" target="_blank">Launch Storefront →</a>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card">
+        <div>
+          <div class="card-icon" style="background: #eff6ff; color: #3b82f6;">🛍️</div>
+          <h3>Shop Catalog</h3>
+          <p>Product search, category filters, and product detail pages with the 47-county shipping estimator.</p>
+        </div>
+        <a href="http://localhost:3000/shop" target="_blank">Browse Catalog →</a>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <div>
+          <div class="card-icon" style="background: #fffbeb; color: #f59e0b;">🚚</div>
+          <h3>Order Tracking</h3>
+          <p>Public parcel status tracker showing real-time timeline from Kamukunji supplier check to delivery.</p>
+        </div>
+        <a href="http://localhost:3000/track" target="_blank">Track Order Status →</a>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card">
+        <div>
+          <div class="card-icon" style="background: #f5f3ff; color: #8b5cf6;">🔐</div>
+          <h3>Admin ERP Dashboard</h3>
+          <p>Executive overview with gross sales, supplier wholesale costs, realized gross profit, and urgent alerts.</p>
+        </div>
+        <a href="http://localhost:3000/admin" target="_blank">Admin Dashboard →</a>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card">
+        <div>
+          <div class="card-icon" style="background: #fdf2f8; color: #ec4899;">📦</div>
+          <h3>Dropship Fulfilment</h3>
+          <p>Order workflow manager to verify stock with suppliers, assign couriers, and record waybill codes.</p>
+        </div>
+        <a href="http://localhost:3000/admin/orders" target="_blank">Manage Fulfilment →</a>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="card">
+        <div>
+          <div class="card-icon" style="background: #ecfdf5; color: #10b981;">📊</div>
+          <h3>Financials & CSV</h3>
+          <p>Itemized sales, wholesale costs, M-Pesa fees, and one-click accounting CSV export.</p>
+        </div>
+        <a href="http://localhost:3000/admin/finance" target="_blank">Financial Reports →</a>
+      </div>
+    </div>
+
+    <!-- Live Preview Frame -->
+    <div class="preview-box">
+      <div class="preview-header">
+        <span>LIVE APPLICATION PREVIEW (http://localhost:3000)</span>
+        <a href="http://localhost:3000" target="_blank" style="color: var(--primary); text-decoration: none;">Open in New Tab ↗</a>
+      </div>
+      <iframe src="http://localhost:3000" title="Zawadi Express Preview"></iframe>
+    </div>
+
+    <footer>
+      <p>Zawadi Express Kenya • Built with Next.js 14, TypeScript, Tailwind CSS & Safaricom Daraja Architecture</p>
+      <p style="margin-top: 0.25rem;">Project Path: <code>c:\Users\ADMIN\Downloads\drop shipping</code></p>
+    </footer>
+
+  </div>
+</body>
+</html>
